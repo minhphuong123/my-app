@@ -1,0 +1,8 @@
+<p>day4 works!</p>
+<ul>
+    <!-- lấy giá trị cuối cùng thì truyền vào: slice:-1 (giá trị âm). Mảng cũng tương tự-->
+    <li *ngFor="let item of categories; let i=index">
+        {{i+1}}-{{item.id}}-{{item.name | uppercase | slice:0:4}}-{{item.tien | number:'1.0-3'}} - {{item.tien | currency:'VND':true:'2.0-0'}}
+        <br> {{date}}<br> {{date | date:'dd-mm-y'}}<br> {{item | json}}
+    </li>
+</ul>

@@ -1,0 +1,51 @@
+<p>Email: {{email.value}}</p>
+<br>
+<input type="text" [formControl]="email">
+<button type="button" class="btn btn-primary" (click)="dangky()">Đăng Ký</button>
+<span *ngIf="email.value == '' ">
+    {{email.value}}
+</span>
+
+<form [formGroup]="info" (ngSubmit)="onSubmit()">
+    Name:
+    <input type="text" class="form-control" formControlName="name"><br>
+    <div *ngIf="name.invalid && (name.touched || name.dirty)">
+        <span *ngIf="name.errors.required">
+            Giá trị name là cần thiết!
+        </span>
+        <span *ngIf="name.errors.pattern">
+            name sai định dạng!
+        </span>
+    </div>
+    <div formGroupName="phone">
+        Phone 1<br>
+        <input type="text" class="form-control" formControlName="phone1"><br>
+        <div *ngIf="phone1.invalid  && ( phone1.touched || phone1.dirty)">
+
+            <span *ngIf="phone1.errors.pattern">
+                phone 1 sai định dạng!
+            </span>
+        </div>
+
+        Phone 2 <br>
+        <input type="text" class="form-control" formControlName="phone2"><br>
+        <div *ngIf="phone2.invalid  && (phone2.touched || phone2.dirty)">
+
+            <span *ngIf="phone2.errors.pattern">
+                phone 2 sai định dạng!
+            </span>
+        </div>
+    </div>
+
+    id:
+    <input type="text" class="form-control" formControlName="id"><br>
+    <div *ngIf="id.invalid && (id.touched || id.dirty)">
+        <span *ngIf="id.errors.required">
+            Giá trị id là cần thiết!
+        </span>
+        <span *ngIf="id.errors.pattern">
+            id sai định dạng!
+        </span>
+    </div>
+    <input type="submit">
+</form>

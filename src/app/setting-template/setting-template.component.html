@@ -1,0 +1,61 @@
+
+<div class="container">
+    <div class="setting-template mt-4">
+        <div class="row">
+            <div class="card col-5">
+                <div class="card-header bg-primary">
+                    Setting Template
+                </div>
+                <div class="card-body">   
+                    <div class="form-group">
+                      <label for="template"><h4 class="card-title">Template</h4></label>
+                      <select  (change) = "changeOption($event)"  class="form-control" id="template">
+                        <option value="blue">Blue</option>
+                        <option value="white">white</option>
+                        <option value="black">black</option>
+                        <option value="custom">custom</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="row" *ngIf="optionCurrent === 'custom'">
+                     <div class="form-group col-6 col-sm-6 col-md-6 col-lg-6">
+                  <label for="Background">Background</label>
+                  <input type="color"
+                    class="form-control"  id="Background" value="#cccccc" (change) = "changeBackgroundColor($event)">
+                </div>   
+                <div class="form-group col-6 col-sm-6 col-md-6 col-lg-6">
+                    <label for="Color">Color</label>
+                    <input type="color"
+                      class="form-control" id="Color"  value="#ffffff" (change) = "changeTextColor($event)">
+                  </div> 
+                </div>
+                 
+            </div>
+            <div class="col-2"></div>
+            <div class="card col-5">
+                <div class="card-header bg-primary">
+                    Your Theme
+                </div>
+                <div class="form-group mt-3">
+                  <label for=""><h4 class="card-title">Your Text</h4></label>
+                  <textarea class="form-control" name="" id="" rows="3" [(ngModel)]="textDemo" value="{{textDemo}}"></textarea>
+                </div>
+                <div class="form-group" *ngIf="optionCurrent ==='custom' else other">
+                 
+                  <input type="text" class="form-control "  value="{{textDemo}}" [ngStyle]="setStyle()" >
+                  
+                </div>
+                <ng-template #other>
+                    <div class="form-group">
+                 
+                        <input type="text" class="form-control {{optionCurrent}}"  value="{{textDemo}}"  >
+                    
+                     </div>
+                </ng-template>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+

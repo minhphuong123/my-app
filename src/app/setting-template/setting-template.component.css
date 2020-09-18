@@ -1,0 +1,12 @@
+input.blue{
+    background-color: blue;
+    color: white;
+}
+input.white{
+    background-color: white;
+    color: blue;
+}
+input.black{
+    background-color: black;
+    color: red;
+}

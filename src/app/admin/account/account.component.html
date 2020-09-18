@@ -1,0 +1,26 @@
+<!-- <p>email:{{email.value}}</p>
+<br> -->
+<!-- [formControl]="email" b5 -->
+<!-- <input type="text" [formControl]="email">
+<input type="button" value="Change Email" (click)="changEmail()"> -->
+
+<form [formGroup]="formInfo" (ngSubmit)="onSubmit()">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input class="form-control" type="text" formControlName="name"></td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td><input class="form-control" type="text" formControlName="email"></td>
+        </tr>
+        <tr>
+            <td>Phone:</td>
+            <td><input class="form-control" type="text" formControlName="phone"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input class="form-control" type="submit" name=""></td>
+        </tr>
+    </table>
+</form>
